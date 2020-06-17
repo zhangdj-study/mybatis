@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mytest.mapper.UserMapper">
+
+    <resultMap id="localMap" type="mytest.model.UserDO">
+        <id property="id" column="id" javaType="java.lang.Long"></id>
+        <result property="userName" column="user_name" javaType="java.lang.String"></result>
+        <result property="userEmail" column="user_email" javaType="java.lang.String"></result>
+        <result property="userPhone" column="user_phone" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <select id="queryList" resultMap="localMap">
+        select * from t_user
+    </select>
+
+    <insert id="insert">
+        insert into t_user(name,phone) values ("qwe","18155545555")
+    </insert>
+</mapper>
