@@ -12,5 +12,5 @@ public interface UserMapper {
 
     List<UserDO> queryList();
 
-    void insert();
+    int insert(UserDO userDO);
 }

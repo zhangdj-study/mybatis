@@ -20,10 +20,11 @@ public class Main {
         String resource = "mytest/mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        sqlSession= sqlSessionFactory.openSession();
+        sqlSession= sqlSessionFactory.openSession(true);
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        userMapper.insert();
-        sqlSession.commit();
+//        userMapper.insert(new UserDO("lisi",null));
+        List<UserDO> userDOS = userMapper.queryList();
+        System.out.println(userDOS);
 //        System.out.println(id);
 
     }
