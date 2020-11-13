@@ -3,6 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--<plugins>
+        <plugin interceptor=""></plugin>
+    </plugins>-->
+    <!--控制台打印sql-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -14,7 +21,10 @@
             </dataSource>
         </environment>
     </environments>
-    <mappers>
+<!--    <mappers>
         <mapper resource="mytest/mapper/UserMapper.xml"/>
+    </mappers>-->
+    <mappers>
+        <mapper class="mytest.mapper.UserMapper"/>
     </mappers>
 </configuration>
